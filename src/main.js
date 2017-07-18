@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import Layout from './pages/layout'
 import IndexPage from './pages/IndexPage'
+import PrintFile from './pages/PrintFilePage'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
@@ -16,6 +17,10 @@ let router = new VueRouter({
         {
             path: '/',
             component: IndexPage
+        },
+        {
+            path: '/printFile',
+            component: PrintFile
         }
     ]
 })

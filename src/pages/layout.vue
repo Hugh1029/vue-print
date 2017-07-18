@@ -12,7 +12,7 @@
            <div class="nav right">
                    <ul>
                        <li @click="userLogin">登录</li>
-                       <li>注册</li>
+                       <li @click="userReg">注册</li>
                        <li>个人中心</li>
                        <li>我是商家</li>
                    </ul>
@@ -42,8 +42,11 @@
                 <img class="wx" src="../assets/WX.jpg">
             </div>
         </div>
-        <my-dialog :is-show-dialog="loginShow" @on-close="closeDialog(loginShow)">
+        <my-dialog :is-show-dialog="loginShow" @on-close="closeDialog('loginShow')">
             <login-form></login-form>
+        </my-dialog>
+        <my-dialog :is-show-dialog="regShow" @on-close="closeDialog('regShow')">
+            <reg-form></reg-form>
         </my-dialog>
     </div>
 </template>
@@ -51,27 +54,33 @@
 <script>
     import Dialog from '../components/base/Dialog'
     import LoginForm from '../components/base/loginForm'
+    import RegForm from '../components/base/regForm'
     export default {
         components: {
             MyDialog:Dialog,
-            LoginForm
+            LoginForm,
+            RegForm
         },
         data (){
             return {
                 loginStatus: false,
-                loginShow: false
+                loginShow: false,
+                regShow: false
             }
         },
         methods: {
-            closeDialog (){
-                this.loginShow = false;
+            closeDialog (index){
+                this[index]= false;
             },
             userLogin (){
                 if(this.loginStatus){
-                    loginStatus = false;
+                    this.loginStatus = false;
                 }else{
                     this.loginShow = true;
                 }
+            },
+            userReg (){
+             this.regShow = true;   
             }
         }
     }
@@ -93,7 +102,7 @@
         display: inline;
     }
     .container {
-        width: 1200px;
+        width: 1080px;
         margin: auto;
     }
     .header {
@@ -136,7 +145,9 @@
     .content {
         min-height: 500px;
         margin: 30px 0;
-        border: 1px solid #a5a1a1;
+        height: auto;
+        display: block;
+        
     }
     
     .footer {

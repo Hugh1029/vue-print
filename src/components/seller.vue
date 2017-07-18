@@ -1,10 +1,12 @@
 <template>
    <div>
        <div class="sellerInfo left" @mouseover="showHidden" @mouseout="hiddenInfo">
-            <div class="seller-bg">
-                <div class="sellerStatus" v-if="sellerStatus">正常营业</div>
-                <div class="sellerStatusFalse" v-if="!sellerStatus">暂停营业</div>
-            </div>
+           <router-link class="link" :to="{path:'/printFile'}">
+                <div class="seller-bg">
+                    <div class="sellerStatus" v-if="sellerStatus">正常营业</div>
+                    <div class="sellerStatusFalse" v-if="!sellerStatus">暂停营业</div>
+                </div>
+            </router-link>
             <div class="seller-content">
                 <div class="seller-title">{{sellername}}</div>
                 <div class="seller-line">
@@ -147,7 +149,7 @@
         height: 400px;
         text-align: center;
         position: relative;
-        margin-right: 50px;
+        margin-right: 10px;
         margin-bottom: 50px;
     }
     .seller-bg {
@@ -274,5 +276,8 @@
     }
     .hidden {
         display: none;
+    }
+    .link {
+        text-decoration: none;
     }
 </style>

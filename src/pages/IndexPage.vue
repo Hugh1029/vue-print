@@ -1,6 +1,7 @@
 <template>
-    <div>
-        <seller v-for="(shop,index) in shopInfoList" :shopId="shop.shopId" :sellername="shop.shopName" :count="shop.count" :deliverTime="shop.deliverTime" :deliverMoney="shop.deliverMoney" :sellerStats="shop.sellerShopStatus" :sellerTime="shop.sellerTime" :sellerAddress="shop.sellerAddress" :telephone="shop.telephone" :report="shop.report" :price="shop.price" ></seller>
+    <div class="shop-list">
+            <seller v-for="(shop,index) in shopInfoList" :shopId="shop.shopId" :sellername="shop.shopName" :count="shop.count" :deliverTime="shop.deliverTime" :deliverMoney="shop.deliverMoney" :sellerStats="shop.sellerShopStatus" :sellerTime="shop.sellerTime" :sellerAddress="shop.sellerAddress" :telephone="shop.telephone" :report="shop.report" :price="shop.price" >
+            </seller>
     </div>
 </template>
 
@@ -86,12 +87,22 @@
             }
         },
         methods: {
-            
+            getData (){
+                this.$http.get('http://answering-1253124701.cossh.myqcloud.com/vue/data/shopList.json').then((response)=>{
+            console.log(response.data);
+        })
+            }
         }
         
     }
 </script>
 
 <style>
-    
+    .link {
+        color: 
+    }
+    .shop-list {
+        border: 1px solid #a5a1a1;
+        min-height: 500px;
+    }
 </style>
