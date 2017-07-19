@@ -23,12 +23,23 @@
         },
         data (){
             return {
-                
+               fileInfo: {} 
             }
         },
         methods: {
             upload (){
-                
+                this.fileInfo = {
+                    filename: '样本文件名称',
+                    pages: 10,
+                    fileId: '10001',
+                    fileStyle: '',
+                    fileSize: '',
+                    color: '',
+                    double: '',
+                    price: 0,
+                    count: 1
+                }
+                this.$emit('addfile',this.fileInfo);
             }
         }
     }

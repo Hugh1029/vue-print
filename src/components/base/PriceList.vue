@@ -2,7 +2,7 @@
     <div class="price-list">
       <div class="price-list-title">价格列表</div>
       <div class="price-list-tip"></div>
-       <div class="price-title"><span>打印类型</span><span>价格</span></div>
+       <div class="pricelist-title"><span>打印类型</span><span>价格</span></div>
         <div v-for="(list,index) in priceList">
             <div class="price-content"><span>{{list.priceName}}:</span><span>{{list.price}}</span></div>
         </div>
@@ -14,7 +14,7 @@
     export default {
         props: {
             priceList: {
-                type: Object,
+                type: Array,
                 default: function(){
                     return [
                         {
@@ -58,7 +58,7 @@
         text-align: center;
         border: 1px solid #a5a1a1;
     }
-    .price-title span {
+    .pricelist-title span {
         margin: 40px;
         font-weight: bold;
     }
